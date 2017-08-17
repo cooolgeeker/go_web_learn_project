@@ -1,0 +1,59 @@
+<html>
+<script type="text/JavaScript">
+
+	function showDisplay(id)
+	{
+		
+		var objects = document.querySelectorAll(".item");
+		
+		for(var i= 0; i< objects.length; i ++){
+
+			objects[i].style.backgroundColor = "#FFFFFF";
+			
+		}
+
+		var item = document.getElementById(id);
+	
+		item.style.backgroundColor = "#4bff00";
+		
+		var contents = document.querySelectorAll(".content");
+		for(var i= 0; i< contents.length; i ++){
+			contents[i].style.display="none";
+		}
+
+		var contentId  = "content_" + id;
+		var content = document.getElementById(contentId);
+		
+		content.style.display="block";
+	}
+	window.onload=function(){ 
+		var contents = document.querySelectorAll(".content");
+		for(var i= 0; i< contents.length; i ++){
+			contents[i].style.display="none";
+		}
+	} 
+</script>
+
+
+
+
+<div id = "items" style="border:3px solid #000; width : 18% ; float:left ; height:100%">
+{{range .Items}}
+	<div class="item" id = "{{.Id}}" onclick='showDisplay("{{.Id}}")'> 这是第一个接口 </div>
+{{end}}
+
+</div>
+<div id = "content" style="border:3px solid #000; width : 80% ; float:left;height:100%">
+
+{{range .Items}}
+	<div class="content" id = "content_{{.Id}}">
+		<p> 请求地址 : {{.Url}} </p>
+        <p> 请求方法 : {{.Method}} </p>
+		<p> 参数 : {{.Args}}  </p>
+        <p> 备注 : {{.Content}}  </p>
+
+	 </div>
+{{end}}
+
+</div>
+</html>

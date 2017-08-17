@@ -1,0 +1,86 @@
+<html>
+<script type="text/JavaScript">
+
+	function showDisplay(id)
+	{
+		
+		var objects = document.querySelectorAll(".item");
+		
+		for(var i= 0; i< objects.length; i ++){
+
+			objects[i].style.backgroundColor = "#FFFFFF";
+			
+		}
+
+		var item = document.getElementById(id);
+	
+		item.style.backgroundColor = "#4bff00";
+		
+		var contents = document.querySelectorAll(".content");
+		for(var i= 0; i< contents.length; i ++){
+			contents[i].style.display="none";
+		}
+
+		var contentId  = "content_" + id;
+		var content = document.getElementById(contentId);
+		
+		content.style.display="block";
+	}
+	window.onload=function(){ 
+		var contents = document.querySelectorAll(".content");
+		for(var i= 0; i< contents.length; i ++){
+			contents[i].style.display="none";
+		}
+	} 
+</script>
+
+
+
+
+<div id = "items" style="border:3px solid #000; width : 18% ; float:left ; height:100%">
+
+	<div class="item" id = "api_1.txt" onclick='showDisplay("api_1.txt")'> 这是第一个接口 </div>
+
+	<div class="item" id = "api_2.txt" onclick='showDisplay("api_2.txt")'> 这是第一个接口 </div>
+
+
+</div>
+<div id = "content" style="border:3px solid #000; width : 80% ; float:left;height:100%">
+
+
+	<div class="content" id = "content_api_1.txt">
+		<p> 请求地址 : url 1
+ </p>
+        <p> 请求方法 : 
+GET 1
+ </p>
+		<p> 参数 : 
+参数 1
+  </p>
+        <p> 备注 : 
+备注 1  </p>
+
+	 </div>
+
+	<div class="content" id = "content_api_2.txt">
+		<p> 请求地址 : url 2
+ </p>
+        <p> 请求方法 : 
+GET 2
+ </p>
+		<p> 参数 : 
+参数 2
+  </p>
+        <p> 备注 : 
+备注 2  </p>
+
+	 </div>
+
+
+</div>
+</html>
+	 </div>
+
+
+</div>
+</html>
